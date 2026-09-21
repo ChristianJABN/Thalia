@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Para Thalia 🌻 21 de Setiembre</title>
 <meta name="theme-color" content="#0f2a1d">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌼</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌻</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Caveat:wght@500;700&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
@@ -289,7 +289,7 @@ footer{padding:48px 20px 64px;text-align:center;background:#081a11;color:#9fb08d
     <p class="apellidos">Ariadna Rosillo García</p>
     <p class="mote">🐍 + 🐛 · hoy, 21 de Setiembre</p>
   </div>
-  <p class="pista" id="pista">toca el jardín para plantar flores 🌼🐛</p>
+  <p class="pista" id="pista">toca el jardín para plantar flores 🌻🐛</p>
 </section>
 
 <!-- ============ RAMO ============ -->
@@ -298,7 +298,7 @@ footer{padding:48px 20px 64px;text-align:center;background:#081a11;color:#9fb08d
     <h2 class="titulo">Un ramo solo para ti</h2>
     <p class="sub">Cada flor guarda una razón. Ábrelas todas.</p>
     <div class="ramo" id="ramoFlores" role="group" aria-label="Ramo de flores amarillas"></div>
-    <div class="razon" id="razon" aria-live="polite">Toca una flor 🌼</div>
+    <div class="razon" id="razon" aria-live="polite">Toca una flor 🌻</div>
   </div>
 </section>
 
@@ -415,7 +415,7 @@ Te quiero muchísimo.`,
 const $ = s => document.querySelector(s);
 const reducir = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-document.title = `Para ${CONFIG.nombre} 🌼 21 de Setiembre`;
+document.title = `Para ${CONFIG.nombre} 🌻 21 de Setiembre`;
 $("#nombre").textContent = CONFIG.nombre;
 
 /* ---------- Fecha del aniversario en el hero ---------- */
@@ -588,7 +588,7 @@ CONFIG.razones.forEach((r,i)=>{
     lluviaPetalos(14, b.getBoundingClientRect());
     if(vistas.size===total){
       setTimeout(()=>{
-        razonEl.innerHTML = `Y la razón número ${total+1}: <b>todo lo que aún no te he dicho.</b><small>feliz día, ${CONFIG.nombre} 🌼</small>`;
+        razonEl.innerHTML = `Y la razón número ${total+1}: <b>todo lo que aún no te he dicho.</b><small>feliz día, ${CONFIG.nombre} 🌻</small>`;
         lluviaPetalos(80);
       },2600);
     }
@@ -632,7 +632,7 @@ function pasoPetalos(){
 /* ---------- FOTOS ---------- */
 const gal = $("#galeria");
 function marcoHTML(f){
-  return `<div class="vacio"><b>🌼</b>Aquí va tu foto<br><small>(${f.src})</small></div><img src="${f.src}" alt="${f.titulo}" loading="lazy" onerror="this.remove()">`;
+  return `<div class="vacio"><b>🌻</b>Aquí va tu foto<br><small>(${f.src})</small></div><img src="${f.src}" alt="${f.titulo}" loading="lazy" onerror="this.remove()">`;
 }
 CONFIG.fotos.forEach((f,i)=>{
   const b = document.createElement("button");
