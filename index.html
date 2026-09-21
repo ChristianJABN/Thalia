@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Para Thalia 🌼 21 de Setiembre</title>
+<meta name="theme-color" content="#0f2a1d">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌼</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Caveat:wght@500;700&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --noche:#0c2418;
+  --hoja:#1c4a31;
+  --musgo:#9cc27d;
+  --sol:#ffc82e;
+  --miel:#ffe9a3;
+  --tierra:#5c3510;
+  --papel:#fffaea;
+  --tinta:#f6f1d9;
+  --serif:"Fraunces", Georgia, serif;
+  --mano:"Caveat", "Segoe Script", cursive;
+  --texto:"Nunito", system-ui, sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--texto);
+  color:var(--tinta);
+  background:var(--noche);
+  line-height:1.65;
+  overflow-x:hidden;
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+:focus-visible{outline:3px solid var(--sol);outline-offset:3px;border-radius:6px}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+h1,h2{font-family:var(--serif);font-weight:400;line-height:1.1}
+section{position:relative;padding:clamp(64px,10vw,120px) 20px}
+.wrap{max-width:1000px;margin:0 auto}
+.titulo{font-size:clamp(2rem,6vw,3.6rem);font-style:italic;font-variation-settings:"opsz" 144;margin-bottom:.4em}
+.sub{max-width:52ch;color:#d5dcc0;font-size:1.05rem}
+.mano{font-family:var(--mano);font-weight:700}
+
+/* ---------- HERO ---------- */
+#hero{
+  min-height:100svh;padding:0;display:grid;place-items:center;text-align:center;
+  background:
+    radial-gradient(90% 60% at 50% 105%, #2f6a43 0%, transparent 70%),
+    radial-gradient(60% 40% at 50% 0%, #17402b 0%, transparent 70%),
+    var(--noche);
+  overflow:hidden;
+}
+#jardin{position:absolute;inset:0;width:100%;height:100%;touch-action:manipulation}
+.hero-texto{position:relative;z-index:2;pointer-events:none;padding:0 20px;padding-top:env(safe-area-inset-top,0px)}
+.hero-texto .fecha{font-family:var(--mano);font-size:clamp(1.4rem,4vw,2rem);color:var(--miel)}
+.hero-texto h1{
+  font-size:clamp(3rem,13vw,8.5rem);font-style:italic;font-weight:300;
+  font-variation-settings:"opsz" 144;color:var(--sol);
+  text-shadow:0 6px 40px rgba(0,0,0,.45);
+  letter-spacing:-.02em;
+}
+.hero-texto .apellidos{
+  font-family:var(--serif);font-size:clamp(1rem,3vw,1.5rem);color:var(--tinta);
+  letter-spacing:.06em;margin-top:.4rem;
+}
+.pista{
+  position:absolute;bottom:calc(28px + env(safe-area-inset-bottom,0px));left:0;right:0;z-index:2;
+  font-family:var(--mano);font-size:1.6rem;color:var(--miel);text-align:center;pointer-events:none;
+  animation:latido 2.4s ease-in-out infinite;
+}
+@keyframes latido{50%{transform:translateY(-6px);opacity:.75}}
+
+/* ---------- RAMO ---------- */
+#ramo{background:linear-gradient(var(--noche),#123222)}
+.ramo{
+  position:relative;display:flex;justify-content:center;align-items:flex-end;
+  gap:clamp(4px,2vw,22px);margin:56px auto 0;max-width:760px;height:340px;
+}
+.tallo-flor{
+  position:relative;flex:1;max-width:96px;display:flex;flex-direction:column;align-items:center;
+  justify-content:flex-start;height:var(--alto);
+}
+.tallo-flor svg.flor{width:100%;height:auto;display:block;transition:transform .35s cubic-bezier(.3,1.6,.5,1);transform-origin:50% 50%;
+  filter:drop-shadow(0 6px 10px rgba(0,0,0,.35))}
+.tallo-flor:hover svg.flor,.tallo-flor:focus-visible svg.flor{transform:scale(1.14) rotate(8deg)}
+.tallo-flor.abierta svg.flor{transform:scale(1.08) rotate(-6deg)}
+.tallo-flor::after{
+  content:"";flex:1;width:6px;border-radius:3px;margin-top:-6px;
+  background:linear-gradient(#4c8a4f,#2b6138);
+}
+.tallo-flor .hoja{position:absolute;bottom:22%;width:34px;height:18px;background:#4c8a4f;border-radius:100% 0 100% 0;opacity:.95}
+.tallo-flor .hoja.izq{left:calc(50% - 38px);transform:scaleX(-1) rotate(-15deg)}
+.tallo-flor .hoja.der{left:calc(50% + 4px);transform:rotate(-15deg)}
+.lazo{
+  position:absolute;bottom:-4px;left:50%;transform:translateX(-50%);
+  width:min(420px,88%);height:54px;background:var(--sol);
+  clip-path:polygon(0 0,100% 0,88% 100%,12% 100%);
+  display:grid;place-items:center;color:var(--tierra);font-family:var(--mano);font-size:1.5rem;z-index:3;
+}
+.razon{
+  min-height:150px;max-width:620px;margin:48px auto 0;text-align:center;
+  font-family:var(--serif);font-size:clamp(1.25rem,3.2vw,1.8rem);font-style:italic;line-height:1.4;color:var(--miel);
+}
+.razon small{display:block;font-family:var(--mano);font-style:normal;font-size:1.4rem;color:var(--musgo);margin-top:.6rem}
+.razon.cambia{animation:aparece .55s ease both}
+@keyframes aparece{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+
+/* ---------- FOTOS ---------- */
+#fotos{background:#123222}
+.galeria{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:34px 26px;margin-top:56px;
+}
+.polaroid{
+  background:var(--papel);color:var(--tierra);padding:12px 12px 16px;border-radius:3px;
+  box-shadow:0 14px 30px rgba(0,0,0,.4);text-align:center;
+  transform:rotate(var(--giro,0deg));transition:transform .3s cubic-bezier(.3,1.5,.5,1),box-shadow .3s;
+  text-align:left;
+}
+.polaroid:nth-child(4n+1){--giro:-2.5deg}
+.polaroid:nth-child(4n+2){--giro:1.8deg}
+.polaroid:nth-child(4n+3){--giro:-1deg}
+.polaroid:nth-child(4n+4){--giro:2.6deg}
+.polaroid:hover,.polaroid:focus-visible{transform:rotate(0) scale(1.06) translateY(-6px);box-shadow:0 24px 44px rgba(0,0,0,.5);z-index:2}
+.marco{position:relative;aspect-ratio:4/5;background:var(--miel);overflow:hidden;display:grid;place-items:center}
+.marco img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.marco .vacio{padding:16px;text-align:center;font-size:.95rem;color:var(--tierra)}
+.marco .vacio b{display:block;font-size:2.4rem}
+.pie{font-family:var(--mano);font-size:1.45rem;line-height:1.2;margin-top:10px;text-align:center}
+.pie em{display:block;font-style:normal;font-family:var(--texto);font-size:.82rem;opacity:.7;margin-top:2px}
+dialog{
+  border:0;background:transparent;max-width:min(92vw,560px);width:100%;margin:auto;color:var(--tierra);
+}
+dialog::backdrop{background:rgba(6,20,13,.88)}
+dialog .polaroid{--giro:0deg;padding:16px 16px 22px;transform:none}
+dialog .cerrar{position:absolute;top:-14px;right:-6px;width:44px;height:44px;border-radius:50%;background:var(--sol);color:var(--tierra);font-size:1.4rem;z-index:5;box-shadow:0 4px 12px rgba(0,0,0,.4)}
+dialog .marco{aspect-ratio:auto;max-height:70vh;min-height:280px}
+dialog .marco img{position:static;height:auto;max-height:70vh;object-fit:contain;background:#000}
+
+/* ---------- TIEMPO ---------- */
+#tiempo{background:linear-gradient(#123222,var(--noche));text-align:center}
+#tiempo .sub{margin:0 auto}
+.reloj{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-top:44px}
+.reloj div{
+  width:min(150px,42vw);padding:22px 8px;border:2px solid var(--sol);border-radius:50% 50% 46% 54% / 60% 60% 40% 40%;
+  background:rgba(255,200,46,.07);
+}
+.reloj strong{display:block;font-family:var(--serif);font-size:clamp(2.2rem,8vw,3.6rem);font-weight:300;color:var(--sol);font-variant-numeric:tabular-nums;line-height:1}
+.reloj span{font-family:var(--mano);font-size:1.4rem;color:var(--miel)}
+
+/* ---------- LINEA ---------- */
+#historia{background:var(--noche)}
+.linea{position:relative;margin:56px 0 0;padding-left:34px;border-left:3px dashed #4c8a4f}
+.hito{position:relative;margin-bottom:40px;max-width:60ch}
+.hito::before{
+  content:"";position:absolute;left:-49px;top:2px;width:26px;height:26px;border-radius:50%;
+  background:radial-gradient(circle,var(--tierra) 0 28%,var(--sol) 30%);box-shadow:0 0 0 5px var(--noche);
+}
+.hito .cuando{font-family:var(--mano);font-size:1.5rem;color:var(--sol)}
+.hito h3{font-family:var(--serif);font-weight:500;font-size:1.4rem;margin-bottom:.2em}
+.hito p{color:#d5dcc0}
+
+/* ---------- CARTA ---------- */
+#carta{background:linear-gradient(var(--noche),#123222);text-align:center;overflow:hidden}
+.sobre{
+  position:relative;width:min(340px,86vw);height:220px;margin:48px auto 0;
+  background:var(--sol);border-radius:6px;color:var(--tierra);
+  box-shadow:0 20px 40px rgba(0,0,0,.45);display:grid;place-items:center;
+  transition:transform .4s cubic-bezier(.3,1.5,.5,1);
+}
+.sobre::before{
+  content:"";position:absolute;inset:0;border-radius:6px;
+  background:linear-gradient(to bottom right,transparent 49.5%,rgba(92,53,16,.25) 50%) left/50% 100% no-repeat,
+             linear-gradient(to bottom left,transparent 49.5%,rgba(92,53,16,.25) 50%) right/50% 100% no-repeat;
+}
+.sobre::after{
+  content:"";position:absolute;top:0;left:0;right:0;height:60%;background:#f0b515;border-radius:6px 6px 0 0;
+  clip-path:polygon(0 0,100% 0,50% 100%);
+}
+.sobre:hover{transform:translateY(-6px) rotate(-1.5deg)}
+.sobre .sello{position:relative;z-index:2;font-size:2.4rem;margin-top:20px;filter:drop-shadow(0 2px 3px rgba(0,0,0,.3))}
+.sobre small{position:absolute;bottom:14px;z-index:2;font-family:var(--mano);font-size:1.4rem}
+.papel{
+  max-width:640px;margin:0 auto;background:var(--papel);color:var(--tierra);text-align:left;
+  padding:clamp(24px,5vw,54px);border-radius:4px;box-shadow:0 24px 50px rgba(0,0,0,.5);
+  font-family:var(--mano);font-size:clamp(1.5rem,3.6vw,1.95rem);line-height:1.4;white-space:pre-wrap;
+  animation:aparece .7s ease both;
+}
+.papel[hidden]{display:none}
+.papel .firma{display:block;margin-top:1em;text-align:right}
+.cursor::after{content:"|";animation:parpadeo .8s steps(1) infinite}
+@keyframes parpadeo{50%{opacity:0}}
+
+/* ---------- PIE ---------- */
+footer{padding:48px 20px 64px;text-align:center;background:#081a11;color:#9fb08d;font-family:var(--mano);font-size:1.5rem}
+#musica{
+  position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:20;width:52px;height:52px;border-radius:50%;
+  background:var(--sol);color:var(--tierra);font-size:1.5rem;box-shadow:0 6px 18px rgba(0,0,0,.5);display:none;
+}
+#musica.ok{display:block}
+
+#petalos{position:fixed;inset:0;pointer-events:none;z-index:15}
+
+@media (max-width:560px){
+  .ramo{height:300px}
+  .galeria{grid-template-columns:repeat(2,1fr);gap:26px 14px}
+  .pie{font-size:1.15rem}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- Flor reutilizable -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="petalo" viewBox="0 0 100 100">
+      <ellipse cx="50" cy="20" rx="10" ry="22" />
+    </symbol>
+    <symbol id="flor-svg" viewBox="0 0 100 100">
+      <g fill="#ffc82e" stroke="#e39a00" stroke-width="1">
+        <g id="anillo">
+          <use href="#petalo"/>
+          <use href="#petalo" transform="rotate(30 50 50)"/>
+          <use href="#petalo" transform="rotate(60 50 50)"/>
+          <use href="#petalo" transform="rotate(90 50 50)"/>
+          <use href="#petalo" transform="rotate(120 50 50)"/>
+          <use href="#petalo" transform="rotate(150 50 50)"/>
+          <use href="#petalo" transform="rotate(180 50 50)"/>
+          <use href="#petalo" transform="rotate(210 50 50)"/>
+          <use href="#petalo" transform="rotate(240 50 50)"/>
+          <use href="#petalo" transform="rotate(270 50 50)"/>
+          <use href="#petalo" transform="rotate(300 50 50)"/>
+          <use href="#petalo" transform="rotate(330 50 50)"/>
+        </g>
+      </g>
+      <circle cx="50" cy="50" r="17" fill="#5c3510"/>
+      <circle cx="50" cy="50" r="17" fill="none" stroke="#8a5a1e" stroke-width="3" stroke-dasharray="1 5" stroke-linecap="round"/>
+      <circle cx="50" cy="50" r="9" fill="#7a4a15"/>
+    </symbol>
+  </defs>
+</svg>
+
+<canvas id="petalos"></canvas>
+<button id="musica" aria-label="Activar o pausar la música" title="Música">🎵</button>
+
+<!-- ============ HERO ============ -->
+<section id="hero">
+  <canvas id="jardin" aria-label="Jardín interactivo: toca para plantar flores amarillas"></canvas>
+  <div class="hero-texto">
+    <p class="fecha" id="fechaHoy">21 de Setiembre</p>
+    <h1 id="nombre">Thalia</h1>
+    <p class="apellidos">Ariadna Rosillo García</p>
+  </div>
+  <p class="pista" id="pista">toca el jardín para plantar flores 🌼</p>
+</section>
+
+<!-- ============ RAMO ============ -->
+<section id="ramo">
+  <div class="wrap">
+    <h2 class="titulo">Un ramo solo para ti</h2>
+    <p class="sub">Cada flor guarda una razón. Ábrelas todas.</p>
+    <div class="ramo" id="ramoFlores" role="group" aria-label="Ramo de flores amarillas"></div>
+    <div class="razon" id="razon" aria-live="polite">Toca una flor 🌼</div>
+  </div>
+</section>
+
+<!-- ============ FOTOS ============ -->
+<section id="fotos">
+  <div class="wrap">
+    <h2 class="titulo">Nuestros momentos</h2>
+    <p class="sub">Toca cualquier foto para verla más grande.</p>
+    <div class="galeria" id="galeria"></div>
+  </div>
+</section>
+
+<dialog id="visor" aria-label="Foto ampliada">
+  <button class="cerrar" id="cerrarVisor" aria-label="Cerrar">✕</button>
+  <div class="polaroid"><div class="marco" id="visorMarco"></div><p class="pie" id="visorPie"></p></div>
+</dialog>
+
+<!-- ============ TIEMPO ============ -->
+<section id="tiempo">
+  <div class="wrap">
+    <h2 class="titulo">Cada segundo contigo</h2>
+    <p class="sub" id="tiempoTxt">Llevamos juntos</p>
+    <div class="reloj" id="reloj" aria-live="off">
+      <div><strong id="t-d">0</strong><span>días</span></div>
+      <div><strong id="t-h">0</strong><span>horas</span></div>
+      <div><strong id="t-m">0</strong><span>minutos</span></div>
+      <div><strong id="t-s">0</strong><span>segundos</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HISTORIA ============ -->
+<section id="historia">
+  <div class="wrap">
+    <h2 class="titulo">Cómo fuimos floreciendo</h2>
+    <div class="linea" id="linea"></div>
+  </div>
+</section>
+
+<!-- ============ CARTA ============ -->
+<section id="carta">
+  <div class="wrap">
+    <h2 class="titulo">Y una cosa más…</h2>
+    <button class="sobre" id="sobre" aria-label="Abrir la carta">
+      <span class="sello">🌻</span>
+      <small>para Thalia</small>
+    </button>
+    <div class="papel" id="papel" hidden></div>
+  </div>
+</section>
+
+<footer>Hecho con cariño, para ti 🌼</footer>
+
+<audio id="audio" loop preload="none"></audio>
+
+<script>
+/* =========================================================
+   ✏️  EDITA AQUÍ TODO LO PERSONAL
+   ========================================================= */
+const CONFIG = {
+  nombre: "Thalia",
+
+  // Fecha en que empezaron (AAAA-MM-DDTHH:MM). CÁMBIALA por la de ustedes.
+  inicioRelacion: "2025-01-01T00:00",
+
+  // Ruta de tu canción (opcional). Sube un mp3 a la carpeta y pon su nombre. Déjalo "" si no quieres música.
+  musica: "",   // ejemplo: "musica.mp3"
+
+  // Razones (una por flor). Puedes poner entre 3 y 7.
+  razones: [
+    { texto: "Porque tu sonrisa me arregla hasta los peores días.", firma: "razón 1" },
+    { texto: "Porque contigo hasta lo simple se siente especial.", firma: "razón 2" },
+    { texto: "Porque me haces reír cuando menos lo espero.", firma: "razón 3" },
+    { texto: "Porque eres mi lugar tranquilo en medio de todo.", firma: "razón 4" },
+    { texto: "Porque cuidas de mí sin que te lo pida.", firma: "razón 5" },
+    { texto: "Porque contigo quiero más días como este.", firma: "razón 6" },
+    { texto: "Porque simplemente eres tú, y eso es más que suficiente.", firma: "razón 7" }
+  ],
+
+  // Fotos: ponlas en la carpeta "fotos/" con estos nombres (o cambia los nombres).
+  // Si una foto no existe, se muestra un recuadro amarillo con un mensaje.
+  fotos: [
+    { src: "fotos/foto1.jpg", titulo: "Nuestro primer recuerdo", detalle: "Escribe aquí la fecha o el lugar" },
+    { src: "fotos/foto2.jpg", titulo: "Ese día que no olvido",   detalle: "Escribe aquí un detalle" },
+    { src: "fotos/foto3.jpg", titulo: "Mi sonrisa favorita",     detalle: "Escribe aquí un detalle" },
+    { src: "fotos/foto4.jpg", titulo: "Una salida cualquiera",   detalle: "que se volvió inolvidable" },
+    { src: "fotos/foto5.jpg", titulo: "Tú y yo",                 detalle: "Escribe aquí un detalle" },
+    { src: "fotos/foto6.jpg", titulo: "Lo que viene",            detalle: "y quiero vivirlo contigo" }
+  ],
+
+  // Línea de tiempo (cambia los textos por sus momentos reales).
+  historia: [
+    { cuando: "El día que te conocí",   titulo: "Todo empezó",            texto: "Escribe aquí cómo se conocieron, dónde estaban y qué sentiste." },
+    { cuando: "Nuestra primera salida", titulo: "Nervios y risas",        texto: "Cuenta algún detalle que solo ustedes dos sepan." },
+    { cuando: "El día que lo supimos",  titulo: "Nos volvimos nosotros",  texto: "El momento en que todo se hizo oficial." },
+    { cuando: "Hoy, 21 de Setiembre",   titulo: "Flores amarillas",       texto: "Hoy te regalo un jardín entero, aunque sea de píxeles." }
+  ],
+
+  // La carta final.
+  carta: `Mi querida Thalia:
+
+Hoy es 21 de Setiembre y quería regalarte algo que no se marchite.
+
+Gracias por ser tan tú: por tu forma de reír, de cuidar, de mirar el mundo. Contigo todo florece un poquito más.
+
+Ojalá esta página te haga sonreír tanto como tú me haces sonreír a mí cada día.
+
+Te quiero muchísimo.`,
+  firma: "Con amor, tu enamorado 🌼"
+};
+
+/* =========================================================
+   Código (no necesitas tocar de aquí para abajo)
+   ========================================================= */
+const $ = s => document.querySelector(s);
+const reducir = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+document.title = `Para ${CONFIG.nombre} 🌼 21 de Setiembre`;
+$("#nombre").textContent = CONFIG.nombre;
+
+/* ---------- Fecha del hero ---------- */
+(function(){
+  const hoy = new Date();
+  const es21 = hoy.getMonth()===8 && hoy.getDate()===21;
+  $("#fechaHoy").textContent = es21 ? "Feliz 21 de Setiembre" : "21 de Setiembre";
+})();
+
+/* ---------- JARDÍN (canvas del hero) ---------- */
+const cv = $("#jardin"), cx = cv.getContext("2d");
+let W=0,H=0,dpr=1, flores=[];
+function ajustar(){
+  dpr = Math.min(devicePixelRatio||1,2);
+  const r = cv.getBoundingClientRect();
+  W = r.width; H = r.height;
+  cv.width = W*dpr; cv.height = H*dpr;
+  cx.setTransform(dpr,0,0,dpr,0,0);
+}
+addEventListener("resize",ajustar); ajustar();
+
+const easeOutBack = t => { const c1=1.70158,c3=c1+1; return 1+c3*Math.pow(t-1,3)+c1*Math.pow(t-1,2); };
+const easeOut = t => 1-Math.pow(1-t,3);
+
+function plantar(x,y,retraso=0){
+  flores.push({
+    x, y, t0: performance.now()+retraso,
+    r: 26 + Math.random()*26,
+    giro: Math.random()*Math.PI,
+    balanceo: Math.random()*Math.PI*2,
+    curva: (Math.random()-.5)*60,
+    petalos: 10 + Math.floor(Math.random()*5)
+  });
+  if(flores.length>70) flores.shift();
+}
+
+function dibujarFlor(f, ahora){
+  const t = (ahora - f.t0)/1000;
+  if(t<0) return;
+  const crece = Math.min(t/1.1,1);          // tallo
+  const abre  = Math.min(Math.max((t-.9)/.9,0),1); // flor
+  const yTop = H - (H - f.y)*easeOut(crece);
+  const viento = Math.sin(ahora/1400 + f.balanceo)*4;
+
+  // tallo curvo
+  cx.strokeStyle = "#3f7d47"; cx.lineWidth = 4; cx.lineCap="round";
+  cx.beginPath();
+  cx.moveTo(f.x, H+4);
+  cx.quadraticCurveTo(f.x+f.curva, (H+yTop)/2, f.x+viento*crece, yTop);
+  cx.stroke();
+  // hojas
+  if(crece>.5){
+    const ly = H - (H-yTop)*.4, k = Math.min((crece-.5)*2,1);
+    cx.fillStyle="#4c8a4f";
+    for(const s of [-1,1]){
+      cx.save(); cx.translate(f.x+f.curva*.5*.5, ly); cx.scale(s*k,k);
+      cx.rotate(-.5);
+      cx.beginPath(); cx.moveTo(0,0); cx.quadraticCurveTo(22,-14,42,0); cx.quadraticCurveTo(22,10,0,0); cx.fill();
+      cx.restore();
+    }
+  }
+  if(abre<=0) return;
+  const esc = easeOutBack(abre);
+  cx.save();
+  cx.translate(f.x+viento*crece, yTop);
+  cx.rotate(f.giro + Math.sin(ahora/2000+f.balanceo)*.06);
+  cx.scale(esc,esc);
+  const n = f.petalos;
+  for(let i=0;i<n;i++){
+    cx.save(); cx.rotate(i*(Math.PI*2/n));
+    const g = cx.createLinearGradient(0,-f.r*1.5,0,0);
+    g.addColorStop(0,"#ffd84a"); g.addColorStop(1,"#f5a800");
+    cx.fillStyle = g;
+    cx.beginPath();
+    cx.ellipse(0,-f.r*.95,f.r*.28,f.r*.62,0,0,Math.PI*2);
+    cx.fill();
+    cx.restore();
+  }
+  cx.fillStyle="#5c3510";
+  cx.beginPath(); cx.arc(0,0,f.r*.42,0,Math.PI*2); cx.fill();
+  cx.fillStyle="#8a5a1e";
+  for(let i=0;i<14;i++){
+    const a = i*2.4, d = f.r*.06*Math.sqrt(i)*1.6;
+    cx.beginPath(); cx.arc(Math.cos(a)*d,Math.sin(a)*d,f.r*.05,0,Math.PI*2); cx.fill();
+  }
+  cx.restore();
+}
+
+/* Pétalos flotando en el hero */
+const motas = Array.from({length:26},()=>({
+  x:Math.random(), y:Math.random(), v:.04+Math.random()*.08, s:4+Math.random()*7, a:Math.random()*6, w:Math.random()*.6+.2
+}));
+function dibujarMotas(ahora){
+  cx.fillStyle="rgba(255,214,80,.75)";
+  for(const m of motas){
+    m.y += m.v*.004; if(m.y>1.05){m.y=-.05;m.x=Math.random()}
+    const px = (m.x + Math.sin(ahora/1800*m.w+m.a)*.02)*W, py = m.y*H;
+    cx.save(); cx.translate(px,py); cx.rotate(ahora/900*m.w+m.a);
+    cx.beginPath(); cx.ellipse(0,0,m.s,m.s*.45,0,0,Math.PI*2); cx.fill(); cx.restore();
+  }
+}
+function bucle(ahora){
+  cx.clearRect(0,0,W,H);
+  if(!reducir) dibujarMotas(ahora);
+  for(const f of flores) dibujarFlor(f,ahora);
+  requestAnimationFrame(bucle);
+}
+requestAnimationFrame(bucle);
+
+cv.addEventListener("pointerdown",e=>{
+  const r = cv.getBoundingClientRect();
+  plantar(e.clientX-r.left, e.clientY-r.top);
+  $("#pista").style.opacity = 0;
+});
+// arrastrar para sembrar varias
+let ultimo=0;
+cv.addEventListener("pointermove",e=>{
+  if(e.buttons!==1) return;
+  const ahora=performance.now(); if(ahora-ultimo<140) return; ultimo=ahora;
+  const r = cv.getBoundingClientRect();
+  plantar(e.clientX-r.left, e.clientY-r.top);
+});
+// jardín inicial
+function jardinInicial(){
+  const n = W<600 ? 7 : 14;
+  for(let i=0;i<n;i++){
+    const x = (i+.5)/n*W + (Math.random()-.5)*W/n*.6;
+    const y = H*(.5 + Math.random()*.38);
+    plantar(x,y, 300 + i*180);
+  }
+}
+jardinInicial();
+
+/* ---------- RAMO ---------- */
+const ramoEl = $("#ramoFlores"), razonEl = $("#razon");
+const total = CONFIG.razones.length;
+const vistas = new Set();
+CONFIG.razones.forEach((r,i)=>{
+  const b = document.createElement("button");
+  b.className = "tallo-flor";
+  const centro = (total-1)/2;
+  const alto = 300 - Math.abs(i-centro)*(total>4?24:34) - (i%2)*10;
+  b.style.setProperty("--alto", alto+"px");
+  b.setAttribute("aria-label", `Abrir ${r.firma}`);
+  b.innerHTML = `<span class="hoja izq"></span><span class="hoja der"></span>
+    <svg class="flor" viewBox="0 0 100 100" aria-hidden="true"><use href="#flor-svg"/></svg>`;
+  b.addEventListener("click",()=>{
+    b.classList.add("abierta"); vistas.add(i);
+    razonEl.classList.remove("cambia"); void razonEl.offsetWidth;
+    razonEl.classList.add("cambia");
+    razonEl.innerHTML = `“${r.texto}”<small>${r.firma}</small>`;
+    lluviaPetalos(14, b.getBoundingClientRect());
+    if(vistas.size===total){
+      setTimeout(()=>{
+        razonEl.innerHTML = `Y la razón número ${total+1}: <b>todo lo que aún no te he dicho.</b><small>feliz día, ${CONFIG.nombre} 🌼</small>`;
+        lluviaPetalos(80);
+      },2600);
+    }
+  });
+  ramoEl.appendChild(b);
+});
+const lazo = document.createElement("div");
+lazo.className="lazo"; lazo.textContent = "para ti";
+ramoEl.appendChild(lazo);
+
+/* ---------- Pétalos globales (confeti) ---------- */
+const pc = $("#petalos"), px = pc.getContext("2d");
+let particulas=[], PW=0, PH=0, animando=false;
+function ajPetalos(){ PW=pc.width=innerWidth; PH=pc.height=innerHeight; }
+addEventListener("resize",ajPetalos); ajPetalos();
+function lluviaPetalos(n, rect){
+  if(reducir) return;
+  for(let i=0;i<n;i++){
+    const ox = rect ? rect.left+rect.width/2 : Math.random()*PW;
+    const oy = rect ? rect.top+rect.height*.2 : -20;
+    particulas.push({
+      x:ox, y:oy,
+      vx:(Math.random()-.5)*(rect?5:2.4), vy: rect ? -2-Math.random()*4 : 1+Math.random()*2.5,
+      g:.07, r:6+Math.random()*7, a:Math.random()*6, va:(Math.random()-.5)*.2,
+      c: Math.random()>.3 ? "#ffc82e" : "#ffe08a"
+    });
+  }
+  if(!animando){animando=true;requestAnimationFrame(pasoPetalos)}
+}
+function pasoPetalos(){
+  px.clearRect(0,0,PW,PH);
+  particulas = particulas.filter(p=>p.y<PH+30);
+  for(const p of particulas){
+    p.vy += p.g; p.vy = Math.min(p.vy,3.2); p.x += p.vx + Math.sin(p.a)*.6; p.y += p.vy; p.a += p.va; p.vx*=.99;
+    px.save(); px.translate(p.x,p.y); px.rotate(p.a); px.fillStyle=p.c;
+    px.beginPath(); px.ellipse(0,0,p.r,p.r*.45,0,0,Math.PI*2); px.fill(); px.restore();
+  }
+  if(particulas.length) requestAnimationFrame(pasoPetalos); else {animando=false;px.clearRect(0,0,PW,PH)}
+}
+
+/* ---------- FOTOS ---------- */
+const gal = $("#galeria");
+function marcoHTML(f){
+  return `<div class="vacio"><b>🌼</b>Aquí va tu foto<br><small>(${f.src})</small></div><img src="${f.src}" alt="${f.titulo}" loading="lazy" onerror="this.remove()">`;
+}
+CONFIG.fotos.forEach((f,i)=>{
+  const b = document.createElement("button");
+  b.className="polaroid";
+  b.setAttribute("aria-label",`Ver foto: ${f.titulo}`);
+  b.innerHTML = `<div class="marco">${marcoHTML(f)}</div><p class="pie">${f.titulo}<em>${f.detalle}</em></p>`;
+  b.addEventListener("click",()=>abrirVisor(f));
+  gal.appendChild(b);
+});
+const visor = $("#visor");
+function abrirVisor(f){
+  $("#visorMarco").innerHTML = marcoHTML(f);
+  $("#visorPie").innerHTML = `${f.titulo}<em style="display:block;font-family:var(--texto);font-size:.9rem;opacity:.7">${f.detalle}</em>`;
+  visor.showModal();
+}
+$("#cerrarVisor").addEventListener("click",()=>visor.close());
+visor.addEventListener("click",e=>{ if(e.target===visor) visor.close(); });
+
+/* ---------- CONTADOR ---------- */
+const inicio = new Date(CONFIG.inicioRelacion);
+function tic(){
+  let ms = Date.now()-inicio.getTime();
+  if(isNaN(ms)) return;
+  if(ms<0) ms=0;
+  const s = Math.floor(ms/1000);
+  $("#t-d").textContent = Math.floor(s/86400).toLocaleString("es-PE");
+  $("#t-h").textContent = Math.floor(s%86400/3600);
+  $("#t-m").textContent = Math.floor(s%3600/60);
+  $("#t-s").textContent = s%60;
+}
+tic(); setInterval(tic,1000);
+$("#tiempoTxt").textContent = `Llevamos juntos desde el ${inicio.toLocaleDateString("es-PE",{day:"numeric",month:"long",year:"numeric"})}.`;
+
+/* ---------- HISTORIA ---------- */
+CONFIG.historia.forEach(h=>{
+  const d = document.createElement("div");
+  d.className="hito";
+  d.innerHTML = `<div class="cuando">${h.cuando}</div><h3>${h.titulo}</h3><p>${h.texto}</p>`;
+  $("#linea").appendChild(d);
+});
+
+/* ---------- CARTA ---------- */
+let cartaAbierta=false;
+$("#sobre").addEventListener("click",()=>{
+  if(cartaAbierta) return; cartaAbierta=true;
+  const papel = $("#papel");
+  $("#sobre").style.display="none";
+  papel.hidden=false;
+  lluviaPetalos(90);
+  const texto = CONFIG.carta;
+  const cierre = ()=>{ papel.innerHTML = papel.textContent + `<span class="firma">${CONFIG.firma}</span>`; papel.classList.remove("cursor"); };
+  if(reducir){ papel.textContent=texto; cierre(); return; }
+  papel.classList.add("cursor");
+  let i=0;
+  (function escribe(){
+    papel.textContent = texto.slice(0,++i);
+    if(i<texto.length){
+      const c = texto[i-1];
+      setTimeout(escribe, c==="."||c==="\n"?260:c===","?120:32);
+    } else cierre();
+  })();
+});
+
+/* ---------- MÚSICA (opcional) ---------- */
+if(CONFIG.musica){
+  const a = $("#audio"), b = $("#musica");
+  a.src = CONFIG.musica; b.classList.add("ok");
+  b.addEventListener("click",()=>{ a.paused ? (a.play(), b.textContent="⏸") : (a.pause(), b.textContent="🎵"); });
+}
+</script>
+</body>
+</html>
