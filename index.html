@@ -43,6 +43,25 @@ section{position:relative;padding:clamp(64px,10vw,120px) 20px}
 .sub{max-width:52ch;color:#d5dcc0;font-size:1.05rem}
 .mano{font-family:var(--mano);font-weight:700}
 
+/* ---------- PANTALLA DE ENTRADA ---------- */
+#entrada{
+  position:fixed;inset:0;z-index:60;display:grid;place-items:center;text-align:center;
+  background:radial-gradient(120% 100% at 50% 100%,#1c4a31 0%,var(--noche) 70%);
+  padding:20px;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  transition:opacity .6s ease, visibility .6s ease;
+}
+#entrada.oculto{opacity:0;visibility:hidden;pointer-events:none}
+#entrada .caja{max-width:360px}
+#entrada .emojis{font-size:2.6rem;margin-bottom:.35em;letter-spacing:.15em}
+#entrada h2{font-family:var(--serif);font-style:italic;font-size:clamp(1.7rem,6vw,2.5rem);color:var(--sol);margin-bottom:.35em}
+#entrada p{color:#d5dcc0;margin-bottom:1.7em;font-family:var(--mano);font-size:1.35rem}
+#entrada button{
+  background:var(--sol);color:var(--tierra);padding:14px 36px;border-radius:100px;
+  font-family:var(--mano);font-size:1.45rem;box-shadow:0 10px 26px rgba(0,0,0,.45);
+  transition:transform .25s;
+}
+#entrada button:hover,#entrada button:focus-visible{transform:scale(1.06)}
+
 /* ---------- HERO ---------- */
 #hero{
   min-height:100svh;padding:0;display:grid;place-items:center;text-align:center;
@@ -64,6 +83,9 @@ section{position:relative;padding:clamp(64px,10vw,120px) 20px}
 .hero-texto .apellidos{
   font-family:var(--serif);font-size:clamp(1rem,3vw,1.5rem);color:var(--tinta);
   letter-spacing:.06em;margin-top:.4rem;
+}
+.hero-texto .mote{
+  font-family:var(--mano);font-size:1.25rem;color:var(--musgo);margin-top:.5rem;
 }
 .pista{
   position:absolute;bottom:calc(28px + env(safe-area-inset-bottom,0px));left:0;right:0;z-index:2;
@@ -245,6 +267,16 @@ footer{padding:48px 20px 64px;text-align:center;background:#081a11;color:#9fb08d
   </defs>
 </svg>
 
+<!-- ============ PANTALLA DE ENTRADA ============ -->
+<div id="entrada">
+  <div class="caja">
+    <div class="emojis">🐍 🌻 🐛</div>
+    <h2>Para ti, Thalia</h2>
+    <p>toca para entrar a nuestro jardín</p>
+    <button id="botonEntrar" autofocus>Entrar</button>
+  </div>
+</div>
+
 <canvas id="petalos"></canvas>
 <button id="musica" aria-label="Activar o pausar la música" title="Música">🎵</button>
 
@@ -252,11 +284,12 @@ footer{padding:48px 20px 64px;text-align:center;background:#081a11;color:#9fb08d
 <section id="hero">
   <canvas id="jardin" aria-label="Jardín interactivo: toca para plantar flores amarillas"></canvas>
   <div class="hero-texto">
-    <p class="fecha" id="fechaHoy">21 de Setiembre</p>
+    <p class="fecha" id="fechaHoy">Nuestro aniversario</p>
     <h1 id="nombre">Thalia</h1>
     <p class="apellidos">Ariadna Rosillo García</p>
+    <p class="mote">🐍 + 🐛 · hoy, 21 de Setiembre</p>
   </div>
-  <p class="pista" id="pista">toca el jardín para plantar flores 🌼</p>
+  <p class="pista" id="pista">toca el jardín para plantar flores 🌼🐛</p>
 </section>
 
 <!-- ============ RAMO ============ -->
@@ -317,9 +350,9 @@ footer{padding:48px 20px 64px;text-align:center;background:#081a11;color:#9fb08d
   </div>
 </section>
 
-<footer>Hecho con cariño, para ti 🌼</footer>
+<footer>Hecho con cariño, para ti 🌻</footer>
 
-<audio id="audio" loop preload="none"></audio>
+<audio id="audio" loop preload="auto"></audio>
 
 <script>
 /* =========================================================
@@ -328,11 +361,11 @@ footer{padding:48px 20px 64px;text-align:center;background:#081a11;color:#9fb08d
 const CONFIG = {
   nombre: "Thalia",
 
-  // Fecha en que empezaron (AAAA-MM-DDTHH:MM). CÁMBIALA por la de ustedes.
+  // Fecha en que empezaron (AAAA-MM-DDTHH:MM).
   inicioRelacion: "2025-04-15T00:00",
 
   // Ruta de tu canción (opcional). Sube un mp3 a la carpeta y pon su nombre. Déjalo "" si no quieres música.
-  musica: "m.mp3",   // ejemplo: "musica.mp3"
+  musica: "m.mp3",
 
   // Razones (una por flor). Puedes poner entre 3 y 7.
   razones: [
@@ -345,8 +378,7 @@ const CONFIG = {
     { texto: "Porque simplemente eres tú, y eso es más que suficiente.", firma: "🌻" }
   ],
 
-  // Fotos: ponlas en la carpeta "fotos/" con estos nombres (o cambia los nombres).
-  // Si una foto no existe, se muestra un recuadro amarillo con un mensaje.
+  // Fotos: ponlas en la carpeta junto al index.html con estos nombres exactos.
   fotos: [
     { src: "WhatsApp Image 2026-09-21 at 5.29.23 PM.jpeg", titulo: "Nuestro primer recuerdo", detalle: "En la plaza" },
     { src: "WhatsApp Image 2026-09-21 at 5.51.53 PM.jpeg", titulo: "Ese día que no olvido",   detalle: "<3" },
@@ -356,7 +388,7 @@ const CONFIG = {
     { src: "WhatsApp Image 2026-09-21 at 5.29.22 PM (3).jpeg", titulo: "Lo que viene",            detalle: "y quiero vivirlo contigo" }
   ],
 
-  // Línea de tiempo (cambia los textos por sus momentos reales).
+  // Línea de tiempo.
   historia: [
     { cuando: "El día que te conocí",   titulo: "Todo empezó",            texto: "14/04" },
     { cuando: "Nuestra primera salida", titulo: "Nervios y risas",        texto: ":S " },
@@ -386,12 +418,35 @@ const reducir = matchMedia("(prefers-reduced-motion: reduce)").matches;
 document.title = `Para ${CONFIG.nombre} 🌼 21 de Setiembre`;
 $("#nombre").textContent = CONFIG.nombre;
 
-/* ---------- Fecha del hero ---------- */
+/* ---------- Fecha del aniversario en el hero ---------- */
 (function(){
-  const hoy = new Date();
-  const es21 = hoy.getMonth()===8 && hoy.getDate()===21;
-  $("#fechaHoy").textContent = es21 ? "Feliz 21 de Setiembre" : "21 de Setiembre";
+  const ini = new Date(CONFIG.inicioRelacion);
+  const meses = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","setiembre","octubre","noviembre","diciembre"];
+  if(!isNaN(ini)){
+    $("#fechaHoy").textContent = `Nuestro aniversario · ${ini.getDate()} de ${meses[ini.getMonth()]}`;
+  }
 })();
+
+/* ---------- Música: preparar la fuente ---------- */
+const audioEl = $("#audio"), botonMusica = $("#musica");
+if(CONFIG.musica){
+  audioEl.src = CONFIG.musica;
+  botonMusica.classList.add("ok");
+}
+botonMusica.addEventListener("click",()=>{
+  if(!CONFIG.musica) return;
+  if(audioEl.paused){ audioEl.play().catch(()=>{}); botonMusica.textContent="⏸"; }
+  else { audioEl.pause(); botonMusica.textContent="🎵"; }
+});
+
+/* ---------- Pantalla de entrada: arranca la música con el primer toque ---------- */
+const entrada = $("#entrada");
+$("#botonEntrar").addEventListener("click",()=>{
+  entrada.classList.add("oculto");
+  if(CONFIG.musica){
+    audioEl.play().then(()=>{ botonMusica.textContent="⏸"; }).catch(()=>{ botonMusica.textContent="🎵"; });
+  }
+},{once:true});
 
 /* ---------- JARDÍN (canvas del hero) ---------- */
 const cv = $("#jardin"), cx = cv.getContext("2d");
@@ -423,18 +478,16 @@ function plantar(x,y,retraso=0){
 function dibujarFlor(f, ahora){
   const t = (ahora - f.t0)/1000;
   if(t<0) return;
-  const crece = Math.min(t/1.1,1);          // tallo
-  const abre  = Math.min(Math.max((t-.9)/.9,0),1); // flor
+  const crece = Math.min(t/1.1,1);
+  const abre  = Math.min(Math.max((t-.9)/.9,0),1);
   const yTop = H - (H - f.y)*easeOut(crece);
   const viento = Math.sin(ahora/1400 + f.balanceo)*4;
 
-  // tallo curvo
   cx.strokeStyle = "#3f7d47"; cx.lineWidth = 4; cx.lineCap="round";
   cx.beginPath();
   cx.moveTo(f.x, H+4);
   cx.quadraticCurveTo(f.x+f.curva, (H+yTop)/2, f.x+viento*crece, yTop);
   cx.stroke();
-  // hojas
   if(crece>.5){
     const ly = H - (H-yTop)*.4, k = Math.min((crece-.5)*2,1);
     cx.fillStyle="#4c8a4f";
@@ -472,7 +525,6 @@ function dibujarFlor(f, ahora){
   cx.restore();
 }
 
-/* Pétalos flotando en el hero */
 const motas = Array.from({length:26},()=>({
   x:Math.random(), y:Math.random(), v:.04+Math.random()*.08, s:4+Math.random()*7, a:Math.random()*6, w:Math.random()*.6+.2
 }));
@@ -498,7 +550,6 @@ cv.addEventListener("pointerdown",e=>{
   plantar(e.clientX-r.left, e.clientY-r.top);
   $("#pista").style.opacity = 0;
 });
-// arrastrar para sembrar varias
 let ultimo=0;
 cv.addEventListener("pointermove",e=>{
   if(e.buttons!==1) return;
@@ -506,7 +557,6 @@ cv.addEventListener("pointermove",e=>{
   const r = cv.getBoundingClientRect();
   plantar(e.clientX-r.left, e.clientY-r.top);
 });
-// jardín inicial
 function jardinInicial(){
   const n = W<600 ? 7 : 14;
   for(let i=0;i<n;i++){
@@ -527,14 +577,14 @@ CONFIG.razones.forEach((r,i)=>{
   const centro = (total-1)/2;
   const alto = 300 - Math.abs(i-centro)*(total>4?24:34) - (i%2)*10;
   b.style.setProperty("--alto", alto+"px");
-  b.setAttribute("aria-label", `Abrir ${r.firma}`);
+  b.setAttribute("aria-label", `Abrir razón ${i+1}`);
   b.innerHTML = `<span class="hoja izq"></span><span class="hoja der"></span>
     <svg class="flor" viewBox="0 0 100 100" aria-hidden="true"><use href="#flor-svg"/></svg>`;
   b.addEventListener("click",()=>{
     b.classList.add("abierta"); vistas.add(i);
     razonEl.classList.remove("cambia"); void razonEl.offsetWidth;
     razonEl.classList.add("cambia");
-    razonEl.innerHTML = `“${r.texto}”<small>${r.firma}</small>`;
+    razonEl.innerHTML = `"${r.texto}"<small>${r.firma}</small>`;
     lluviaPetalos(14, b.getBoundingClientRect());
     if(vistas.size===total){
       setTimeout(()=>{
@@ -546,7 +596,7 @@ CONFIG.razones.forEach((r,i)=>{
   ramoEl.appendChild(b);
 });
 const lazo = document.createElement("div");
-lazo.className="lazo"; lazo.textContent = "para ti";
+lazo.className="lazo"; lazo.textContent = "para ti 🐍";
 ramoEl.appendChild(lazo);
 
 /* ---------- Pétalos globales (confeti) ---------- */
@@ -645,13 +695,6 @@ $("#sobre").addEventListener("click",()=>{
     } else cierre();
   })();
 });
-
-/* ---------- MÚSICA (opcional) ---------- */
-if(CONFIG.musica){
-  const a = $("#audio"), b = $("#musica");
-  a.src = CONFIG.musica; b.classList.add("ok");
-  b.addEventListener("click",()=>{ a.paused ? (a.play(), b.textContent="⏸") : (a.pause(), b.textContent="🎵"); });
-}
 </script>
 </body>
 </html>
